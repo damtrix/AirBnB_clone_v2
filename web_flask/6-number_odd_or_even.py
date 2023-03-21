@@ -2,7 +2,7 @@
 """
 Starts a Flask web application
 """
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -38,6 +38,23 @@ def python_text(text):
 def is_numeber(n):
     """Display “n is a number” only if n is an integer"""
     return "{:d} is a number".format(n)
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def numbersandtemplates(n):
+    """Display a HTML page only if n is an integer"""
+    return render_template('5-number.html', n=n)
+
+
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def odd_or_even(n):
+    """Display if a number is odd or even"""
+    if n % 2 == 0:
+        even_or_odd = "even"
+    else:
+        even_or_odd = "odd"
+    return render_template('6-number_odd_or_even.html', n=n,
+                           even_or_odd=even_or_odd)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='5000')
