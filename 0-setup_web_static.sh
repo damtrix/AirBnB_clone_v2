@@ -1,4 +1,5 @@
-re my webservers (web-01 & web-02)
+#!/usr/bin/env bash
+# Prepare my webservers (web-01 & web-02)
 
 # uncomment for easy debugging
 #set -x
