@@ -99,7 +99,7 @@ class test_basemodel(unittest.TestCase):
     def test_created_at(self):
         """ """
         new = self.value()
-        self.assertEqual(type(new.created_at), datetime.datetime)
+        self.assertEqual(type(new.created_at), datetime)
 
     def test_updated_at(self):
         """ """
