@@ -1,37 +1,37 @@
 #!/usr/bin/python3
+""" Write a script that starts a Flask web application:
+Your web application must be listening on 0.0.0.0, port 5000
 """
-Starts a Flask web application
-"""
+
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask("__name__")
 
 
 @app.route('/', strict_slashes=False)
-def index():
-    """display Hello HBNB!"""
-    return "Hello HBNB!"
+def hello():
+    """Return a given string"""
+    return ("Hello HBNB!")
 
 
-@app.route('/hbnb', strict_slashes=False)
-def second_index():
-    """display HBNB"""
-    return "HBNB"
+@app.route("/hbnb", strict_slashes=False)
+def hbnb():
+    """Returns a given string"""
+    return ("HBNB")
 
 
-@app.route('/c/<text>', strict_slashes=False)
-def cisfun(text):
-    """Display “C ” followed by the value of the text variable"""
-    text = text.replace('_', ' ')
-    return "C {}".format(text)
+@app.route("/c/<text>", strict_slashes=False)
+def cText(text):
+    """display C followed by the value of the text variable"""
+    return "C {}".format(text.replace("_", " "))
 
 
-@app.route('/python', defaults={'text': 'is cool'}, strict_slashes=False)
-@app.route('/python/<text>', strict_slashes=False)
-def python_text(text):
-    """Display “Python” followed by the value of the text variable"""
-    text = text.replace('_', ' ')
-    return "Python {}".format(text)
+@app.route('/python', strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
+def pythonText(text="is cool"):
+    """display Python followed by the value of the text variable"""
+    return "Python {}".format(text.replace("_", " "))
+
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='5000')
+    app.run(host="0.0.0.0", port=5000, debug=None)
