@@ -29,8 +29,8 @@ def cText(text):
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def pythonText(text="is cool"):
-     """Displays 'Python' followed by the value of <text>."""
-     return "Python {}".format(text.replace("_", " "))
+    """Displays 'Python' followed by the value of <text>."""
+    return "Python {}".format(text.replace("_", " "))
 
 
 if __name__ == "__main__":
